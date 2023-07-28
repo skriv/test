@@ -3,5 +3,5 @@ console.log("test")
 
 console.log("tttttt")
 
-console.log("123456")
+console.log("00000")
 
