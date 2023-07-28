@@ -3,6 +3,5 @@ console.log("test")
 
 console.log("tttttt")
 
-console.log("tttttt")
-console.log("tttttt")
-console.log("tttttt")
+console.log("123456")
+
