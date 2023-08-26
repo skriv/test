@@ -1,4 +1,4 @@
-console.log("HI");
+console.log("HI NEW");
 let BASE_URL = "https://app-proxy-api-9eb71dd330e9.herokuapp.com";
 let INIT_EXCAHGE_VAL = 100;
 let INIT_FROM_CURRENCY = "USD";
