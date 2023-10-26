@@ -1,5 +1,6 @@
 console.log("HI NEW START");
 console.log("HI NEW START_MY FIX");
+console.log("HI NEW START_MY FIX _ SECOND");
 
 let BASE_URL = "https://app-proxy-api-9eb71dd330e9.herokuapp.com";
 let INIT_EXCAHGE_VAL = 100;
