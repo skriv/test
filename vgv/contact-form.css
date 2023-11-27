@@ -42,6 +42,11 @@
     /* margin-top: 1.5rem; */
     margin-bottom: 4px;
   }
+
+  .hs-form-checkbox-display{
+    display: flex;
+    align-items: center;
+  }
   
   .hs-form-field>label {
     box-sizing: border-box;
