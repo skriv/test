@@ -1,7 +1,7 @@
 .hs-button{
     border-style: none;
     color: white;
-    height: 96px;
+    /* height: 96px; */
     text-align: center;
     background-color: #2a48df;
     border-radius: 54px;
@@ -137,7 +137,7 @@
   
   
   /* GRID EDITOR */
-  .hs-form-private {
+  /* .hs-form-private {
     display: grid;
     grid-auto-columns: 1fr;
     grid-column-gap: 1.5rem;
@@ -145,10 +145,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }
-  
-  .hs-form-private > div {
+   */
+  /* .hs-form-private > div {
     grid-column: span 1;
-  }
+  } */
   
   /* For 5, 6 и 7 span 2, */
   /* .hs-form-private > div:nth-child(n+5):nth-child(-n+7) {
