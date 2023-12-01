@@ -170,17 +170,17 @@ $(".slider-main_component").each(function (index) {
       // mobile landscape
       480: {
         slidesPerView: 1.5,
-        spaceBetween: "4%"
+        spaceBetween: 12
       },
       // tablet
       768: {
         slidesPerView: 2,
-        spaceBetween: "4%"
+        spaceBetween: 12
       },
       // desktop
       992: {
         slidesPerView: 3,
-        spaceBetween: "4%"
+        spaceBetween: 12
       }
     },
     pagination: {
