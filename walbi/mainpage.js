@@ -7,14 +7,15 @@ console.log("Hello Walbi");
 
 $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
-  var ANDRIOD_BUTTON_NAME = "Android Button";
+  var isMac = /(macintosh)/i.test(navigator.userAgent);
+  var ANDROID_BUTTON_NAME = "Android Button";
   var ANDROID_LINK = "https://android-link.com";
   var JOIN_LINK = "https://join-link.com";
 
   var mainButton = $('#mainButton');
 
-  if (isAndroid) {
-    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', ANDROID_LINK);
+  if (isAndroid && !isMac) {
+    mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
   } else {
     mainButton.text("Non-Android Button").attr('href', JOIN_LINK);
   }
