@@ -6,8 +6,11 @@ console.log("Hello Walbi");
 
 
 $(document).ready(function(){
-  var isAndroid = /(android)/i.test(navigator.userAgent);
-  // var isMac = /(macintosh)/i.test(navigator.userAgent);
+
+  var userAgent = navigator.userAgent.toLowerCase();
+  var isAndroid = userAgent.indexOf("android") > -1; // Провер
+
+
   var ANDROID_BUTTON_NAME = "Download the app";
   var ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
   var JOIN_LINK = "https://app.walbi.com/";
