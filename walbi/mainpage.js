@@ -1,29 +1,24 @@
 console.log("Hello Walbi");
 
-const ANDRIOD_BUTTON_NAME = "Download the app";
-const ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
-const JOIN_LINK = "https://app.walbi.com/"
+// const ANDRIOD_BUTTON_NAME = "Download the app";
+// const ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
+// const JOIN_LINK = "https://app.walbi.com/"
 
-let mainButton = $('#mainButton');
-
-// CHECK ANDRIOD DEVICE
 
 $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
+  var ANDRIOD_BUTTON_NAME = "Android Button";
+  var ANDROID_LINK = "https://android-link.com";
+  var JOIN_LINK = "https://join-link.com";
 
-  if(!/(android|iphone|ipad|ipod|windows phone)/i.test(navigator.userAgent)) {
-    mainButton.text('ANDRIOD_BUTTON_NAME');
+  var mainButton = $('#mainButton');
+
+  if (isAndroid) {
+    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', ANDROID_LINK);
+  } else {
+    mainButton.text("Non-Android Button").attr('href', JOIN_LINK);
   }
-
 });
-
-
-
-
-
-
-
-
 
 
 
