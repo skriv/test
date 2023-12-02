@@ -15,6 +15,7 @@ $(document).ready(function(){
     mainButton.text(ANDRIOD_BUTTON_NAME);
     mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', ANDROID_LINK);
   }else{
+    mainButton.text("ANDRIOD_BUTTON_NAME");
     mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', JOIN_LINK);
   }
 });
