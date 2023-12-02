@@ -4,79 +4,79 @@ console.log("Hello Walbi");
 
 //COOKIES
 // Cache DOM elements
-var pageWrapper = $(".page-wrapper");
-var navbarWrapper = $(".navbar-wrapper");
-var menuBtn = $("#mobile-menu");
-var dropdownTops = $(".dropdown.top");
-var mainWrapper = $(".main-wrapper");
-$(".dropdown-wrapper").show(); // показываем контейнер с dropdown menu
+// var pageWrapper = $(".page-wrapper");
+// var navbarWrapper = $(".navbar-wrapper");
+// var menuBtn = $("#mobile-menu");
+// var dropdownTops = $(".dropdown.top");
+// var mainWrapper = $(".main-wrapper");
+// $(".dropdown-wrapper").show(); // показываем контейнер с dropdown menu
 
 // Set initial theme based on cookie
-if (Cookies.get("darkTheme") == "enabled") {
-  pageWrapper.addClass("dark-theme");
-  setThemeColors("dark");
-} else {
-  setThemeColors("light");
-}
+// if (Cookies.get("darkTheme") == "enabled") {
+//   pageWrapper.addClass("dark-theme");
+//   setThemeColors("dark");
+// } else {
+//   setThemeColors("light");
+// }
 
 // Theme Switcher
-$(".theme-switch").on("click", function () {
-  pageWrapper.toggleClass("dark-theme");
-  if (pageWrapper.hasClass("dark-theme")) {
-    Cookies.set("darkTheme", "enabled", { path: "/", expires: 365 });
-    setThemeColors("dark");
-  } else {
-    Cookies.remove("darkTheme");
-    setThemeColors("light");
-  }
-});
+// $(".theme-switch").on("click", function () {
+//   pageWrapper.toggleClass("dark-theme");
+//   if (pageWrapper.hasClass("dark-theme")) {
+//     Cookies.set("darkTheme", "enabled", { path: "/", expires: 365 });
+//     setThemeColors("dark");
+//   } else {
+//     Cookies.remove("darkTheme");
+//     setThemeColors("light");
+//   }
+// });
 
-$("[data-hoverable]").hover(
-  function () {
-    setNavBarColor();
-  },
-  function () {
-    resetNavBarColor();
-  }
-);
+// $("[data-hoverable]").hover(
+//   function () {
+//     setNavBarColor();
+//   },
+//   function () {
+//     resetNavBarColor();
+//   }
+// );
 
 // Change NavBar on Hover
-dropdownTops.hover(
-  function () {
-    setNavBarColor();
-  },
-  function () {
-    resetNavBarColor();
-  }
-);
+// dropdownTops.hover(
+//   function () {
+//     setNavBarColor();
+//   },
+//   function () {
+//     resetNavBarColor();
+//   }
+// );
 
 // Change NavBar mobile
-menuBtn.click(function () {
-  if (!menuBtn.data("clicked")) {
-    setNavBarColor();
-  } else {
-    resetNavBarColor();
-  }
-  menuBtn.data("clicked", !menuBtn.data("clicked"));
-});
+// menuBtn.click(function () {
+//   if (!menuBtn.data("clicked")) {
+//     setNavBarColor();
+//   } else {
+//     resetNavBarColor();
+//   }
+//   menuBtn.data("clicked", !menuBtn.data("clicked"));
+// });
 
-function setThemeColors(theme) {
-  if (theme === "dark") {
-    document.documentElement.style.setProperty("--bg-color", "#fff");
-    document.documentElement.style.setProperty("--nav-color", "#fff");
-  } else {
-    document.documentElement.style.setProperty("--bg-color", "#000");
-    document.documentElement.style.setProperty("--nav-color", "#000");
-  }
-}
+// function setThemeColors(theme) {
+//   if (theme === "dark") {
+//     document.documentElement.style.setProperty("--bg-color", "#fff");
+//     document.documentElement.style.setProperty("--nav-color", "#fff");
+//   } else {
+//     document.documentElement.style.setProperty("--bg-color", "#000");
+//     document.documentElement.style.setProperty("--nav-color", "#000");
+//   }
+// }
 
-function setNavBarColor() {
-  navbarWrapper.css("background-color", "var(--nav-color)");
-}
+// function setNavBarColor() {
+//   navbarWrapper.css("background-color", "var(--nav-color)");
+// }
 
-function resetNavBarColor() {
-  navbarWrapper.css("background-color", "");
-}
+// function resetNavBarColor() {
+//   navbarWrapper.css("background-color", "");
+// }
 
 
 
