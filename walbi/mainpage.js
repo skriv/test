@@ -7,7 +7,7 @@ console.log("Hello Walbi");
 
 $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
-  var isMac = /(macintosh)/i.test(navigator.userAgent);
+  // var isMac = /(macintosh)/i.test(navigator.userAgent);
   var ANDROID_BUTTON_NAME = "Android Button";
   var ANDROID_LINK = "https://android-link.com";
   var JOIN_LINK = "https://join-link.com";
