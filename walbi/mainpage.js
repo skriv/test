@@ -12,9 +12,9 @@ $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
 
   if(!/(android|iphone|ipad|ipod|windows phone)/i.test(navigator.userAgent)) {
-    mainButton.text('Оригинальное имя кнопки');
+    mainButton.text('ANDRIOD_BUTTON_NAME');
   }
-  
+
 });
 
 
