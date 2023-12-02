@@ -139,16 +139,22 @@ function colorModeToggle() {
 // ChANGE COLOR SWITCH ICON
 function changeIconInSwitcher(){
   var isDarkMode = localStorage.getItem("dark-mode");
-  var icons = document.querySelectorAll('.icon-moon, .icon-sun');
+  var iconMoons = document.querySelectorAll('.icon-moon');
+  var iconSuns = document.querySelectorAll('.icon-sun');
 
-  icons.forEach(function(icon) {
-      if ((isDarkMode === 'true' && icon.classList.contains('icon-sun')) ||
-          (isDarkMode !== 'true' && icon.classList.contains('icon-moon'))) {
-          icon.style.display = 'block';
-      } else {
-          icon.style.display = 'none';
-      }
-  });
+  if (isDarkMode === 'true') {
+      iconMoons.forEach(function(iconMoon) {
+          iconMoon.style.display = 'none';
+      });
+      iconSuns.forEach(function(iconSun) {
+          iconSun.style.display = 'block';
+      });
+  } else {
+      iconMoons.forEach(function(iconMoon) {
+          iconMoon.style.display = 'block';
+      });
+      iconSuns.forEach(function(iconSun) {
+          iconSun.style.display = 'none';
+      });
+  }
 }
-
-  
