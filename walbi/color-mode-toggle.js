@@ -113,17 +113,28 @@ function colorModeToggle() {
   }
   colorModeToggle();
 
+//   CHANGE IMAGES
   function checkDarkModePreference() {
     var isDarkMode = localStorage.getItem("dark-mode");
     var images = document.querySelectorAll('img[dark]'); // Выбираем только изображения с атрибутом darkMode
+    var iconMoon = document.querySelector('.icon-moon');
+    var iconSun = document.querySelector('.icon-sun');
   
     images.forEach(function(image) {
       var darkModeAttr = image.getAttribute('dark');
       if ((isDarkMode === "false" && darkModeAttr === 'true') || (isDarkMode !== "false" && darkModeAttr !== 'true')) {
         image.style.display = 'block';
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
       } else {
         image.style.display = 'none';
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
       }
     });
   }
+
+// ChANGE COLOR SWITCH ICON
+
+
   
