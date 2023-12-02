@@ -11,14 +11,21 @@ let mainButton = $('#mainButton');
 $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
 
-  if (isAndroid) {
-    mainButton.text(ANDRIOD_BUTTON_NAME);
-    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', ANDROID_LINK);
-  }else{
-    mainButton.text("ANDRIOD_BUTTON_NAME");
-    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', JOIN_LINK);
+  if(!/(android|iphone|ipad|ipod|windows phone)/i.test(navigator.userAgent)) {
+    mainButton.text('Оригинальное имя кнопки');
   }
+  
 });
+
+
+
+
+
+
+
+
+
+
 
 
 // //GSAP
