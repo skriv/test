@@ -1,83 +1,23 @@
 console.log("Hello Walbi");
 
-//Main State
+const ANDRIOD_BUTTON_NAME = "Download the app";
+const ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
+const JOIN_LINK = "https://app.walbi.com/"
 
-//COOKIES
-// Cache DOM elements
-// var pageWrapper = $(".page-wrapper");
-// var navbarWrapper = $(".navbar-wrapper");
-// var menuBtn = $("#mobile-menu");
-// var dropdownTops = $(".dropdown.top");
-// var mainWrapper = $(".main-wrapper");
-// $(".dropdown-wrapper").show(); // показываем контейнер с dropdown menu
+let mainButton = $('#mainButton');
 
-// Set initial theme based on cookie
-// if (Cookies.get("darkTheme") == "enabled") {
-//   pageWrapper.addClass("dark-theme");
-//   setThemeColors("dark");
-// } else {
-//   setThemeColors("light");
-// }
+// CHECK ANDRIOD DEVICE
 
-// Theme Switcher
-// $(".theme-switch").on("click", function () {
-//   pageWrapper.toggleClass("dark-theme");
-//   if (pageWrapper.hasClass("dark-theme")) {
-//     Cookies.set("darkTheme", "enabled", { path: "/", expires: 365 });
-//     setThemeColors("dark");
-//   } else {
-//     Cookies.remove("darkTheme");
-//     setThemeColors("light");
-//   }
-// });
+$(document).ready(function(){
+  var isAndroid = /(android)/i.test(navigator.userAgent);
 
-// $("[data-hoverable]").hover(
-//   function () {
-//     setNavBarColor();
-//   },
-//   function () {
-//     resetNavBarColor();
-//   }
-// );
-
-// Change NavBar on Hover
-// dropdownTops.hover(
-//   function () {
-//     setNavBarColor();
-//   },
-//   function () {
-//     resetNavBarColor();
-//   }
-// );
-
-// Change NavBar mobile
-// menuBtn.click(function () {
-//   if (!menuBtn.data("clicked")) {
-//     setNavBarColor();
-//   } else {
-//     resetNavBarColor();
-//   }
-//   menuBtn.data("clicked", !menuBtn.data("clicked"));
-// });
-
-// function setThemeColors(theme) {
-//   if (theme === "dark") {
-//     document.documentElement.style.setProperty("--bg-color", "#fff");
-//     document.documentElement.style.setProperty("--nav-color", "#fff");
-//   } else {
-//     document.documentElement.style.setProperty("--bg-color", "#000");
-//     document.documentElement.style.setProperty("--nav-color", "#000");
-//   }
-// }
-
-// function setNavBarColor() {
-//   navbarWrapper.css("background-color", "var(--nav-color)");
-// }
-
-// function resetNavBarColor() {
-//   navbarWrapper.css("background-color", "");
-// }
-
+  if (isAndroid) {
+    mainButton.text(ANDRIOD_BUTTON_NAME);
+    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', ANDROID_LINK);
+  }else{
+    mainButton.text(ANDRIOD_BUTTON_NAME).attr('href', JOIN_LINK);
+  }
+});
 
 
 // //GSAP
@@ -137,7 +77,7 @@ $(window).resize(function () {
 
 
 
-// SWIPER
+// BLOG SWIPER
 
 $(".slider-main_component").each(function (index) {
   let loopMode = false;
