@@ -125,11 +125,11 @@ function colorModeToggle() {
       if ((isDarkMode === "false" && darkModeAttr === 'true') || (isDarkMode !== "false" && darkModeAttr !== 'true')) {
         image.style.display = 'block';
         iconMoon.style.display = 'block';
-        iconSun.style.display = 'none';
+        // iconSun.style.display = 'none';
       } else {
         image.style.display = 'none';
         iconMoon.style.display = 'none';
-        iconSun.style.display = 'block';
+        // iconSun.style.display = 'block';
       }
     });
   }
