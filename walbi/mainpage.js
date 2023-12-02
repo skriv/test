@@ -8,16 +8,17 @@ console.log("Hello Walbi");
 $(document).ready(function(){
   var isAndroid = /(android)/i.test(navigator.userAgent);
   // var isMac = /(macintosh)/i.test(navigator.userAgent);
-  var ANDROID_BUTTON_NAME = "Android Button";
-  var ANDROID_LINK = "https://android-link.com";
-  var JOIN_LINK = "https://join-link.com";
+  var ANDROID_BUTTON_NAME = "Download the app";
+  var ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
+  var JOIN_LINK = "https://app.walbi.com/";
+  var JOIN_BUTTON_NAME = "Join";
 
   var mainButton = $('#mainButton');
 
   if (isAndroid && !isMac) {
     mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
   } else {
-    mainButton.text("Non-Android Button").attr('href', JOIN_LINK);
+    mainButton.text(JOIN_BUTTON_NAME).attr('href', JOIN_LINK);
   }
 });
 
