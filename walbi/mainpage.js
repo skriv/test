@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   var mainButton = $('#mainButton');
 
-  if (isAndroid && !isMac) {
+  if (isAndroid) {
     mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
   } else {
     mainButton.text(JOIN_BUTTON_NAME).attr('href', JOIN_LINK);
