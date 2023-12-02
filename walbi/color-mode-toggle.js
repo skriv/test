@@ -96,6 +96,7 @@ function colorModeToggle() {
     window.addEventListener("DOMContentLoaded", (event) => {
       toggleEl = document.querySelectorAll("[tr-color-toggle]");
       checkDarkModePreference();
+      changeIconInSwitcher();
 
       toggleEl.forEach(function (element) {
         element.setAttribute("aria-label", "View Dark Mode");
@@ -107,6 +108,7 @@ function colorModeToggle() {
           let darkClass = htmlElement.classList.contains("dark-mode");
           darkClass ? goDark(false, true) : goDark(true, true);
           checkDarkModePreference();
+          changeIconInSwitcher();
         });
       });
     });
@@ -135,6 +137,18 @@ function colorModeToggle() {
   }
 
 // ChANGE COLOR SWITCH ICON
+function changeIconInSwitcher(){
+    var isDarkMode = localStorage.getItem("dark-mode");
+    var iconMoon = document.querySelector('.icon-moon');
+    var iconSun = document.querySelector('.icon-sun');
 
+    if (isDarkMode === 'true') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+    } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
+    }
+}
 
   
