@@ -6,22 +6,29 @@ console.log("Hello Walbi1111");
 
 var EMPTY = "";
 
+var IOS_BUTTON_NAME = "Download iOS Beta";
+var IOS_LINK = "https://testflight.apple.com/join/QRbXi8u3"
+
+var ANDROID_BUTTON_NAME = "Download";
+var ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
+
+var JOIN_LINK = "https://app.walbi.com/";
+var JOIN_BUTTON_NAME = "Join";
+
+
 
 $(document).ready(function(){
 
   var userAgent = navigator.userAgent.toLowerCase();
   var isAndroid = userAgent.indexOf("android") > -1; // Провер
-
-
-  var ANDROID_BUTTON_NAME = "Download the app";
-  var ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
-  var JOIN_LINK = "https://app.walbi.com/";
-  var JOIN_BUTTON_NAME = "Join";
+  var isIOS = /iphone|ipad|ipod/.test(userAgent); // Проверяем наличие iOS устройств
 
   var mainButton = $('#mainButton');
 
   if (isAndroid) {
     mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
+  } else if (isIOS) {
+    mainButton.text(IOS_BUTTON_NAME).attr('href', IOS_LINK);
   } else {
     mainButton.text(JOIN_BUTTON_NAME).attr('href', JOIN_LINK);
   }
