@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 
 
-// Функция для обновления padding-right у элемента #empty
+// Функция для обновления padding-right у элемента #empty в списке блогпостов
 function updatePadding() {
   var windowWidth = $(window).width();
   var swiperWrapperWidth = $('.swiper-wrapper').width();
@@ -112,5 +112,5 @@ $(window).resize(function () {
   ScrollTrigger.update();
 
 
-  updatePadding();
+  updatePadding(); //обновляем паддинги для блог листинга
 });
