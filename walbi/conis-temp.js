@@ -10,12 +10,9 @@ let tableWrapper = $("#table-wrapper");
 let sourceRow = $("#o-c-row");
 let historicalData = {};
 
-
-$( document ).ready(function() {
-
-
-// HELPER
-function waitForEl(selector, callback, maxtries = false, interval = 100) {
+$(document).ready(function () {
+  // HELPER
+  function waitForEl(selector, callback, maxtries = false, interval = 100) {
     const poller = setInterval(() => {
       const el = $(selector);
       const retry = maxtries === false || maxtries-- > 0;
@@ -27,17 +24,17 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
       callback(el || null);
     }, interval);
   }
-  
+
   Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
   };
-  
+
   function print(obj) {
     console.log(obj);
   }
-  
+
   function commafy(num) {
     var str = num.split(".");
     if (str[0].length > 3) {
@@ -48,17 +45,17 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     }
     return str.join(".");
   }
-  
+
   function formatingMoney(cost, use_dollar = true) {
     var str = commafy(Number.parseFloat(cost).toFixed(2));
     if (use_dollar) {
       return "$" + str;
     }
-  
+
     return str;
   }
   // END HELPER
-  
+
   function setPercent(elem, percent) {
     elem.text(Number.parseFloat(percent).toFixed(2) + "%");
     var parent = elem.parent();
@@ -69,21 +66,21 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
       first.text("▲");
       return;
     }
-  
+
     first.text("▼");
     parent.addClass("text-color-red");
   }
-  
+
   function randNumbers() {
     var numbers = [];
-  
+
     for (var i = 0; i < 15; i += 1) {
       numbers.push(Math.random() * 50);
     }
-  
+
     return numbers;
   }
-  
+
   function getPrices(q) {
     var prices = [];
     var min = q[0].quote.USD.price;
@@ -98,16 +95,15 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
         min = price;
       }
     });
-  
+
     q.forEach(function (info) {
       price = (info.quote.USD.price - min) / (max - min);
       prices.push(Number.parseFloat(price.toFixed(2)));
     });
-  
+
     return prices;
   }
-  
-  
+
   function drawGraphs() {
     $(".sparkline").each(function () {
       var elem = $(this)[0];
@@ -122,15 +118,17 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
         }
       }
     });
+    $(".chart-loader").hide();
+    $(".chart-final").show();
   }
-  
+
   function create_record(data, meta, ticker) {
     const clonedItem = sourceRow.clone().removeAttr("id");
     const cName = clonedItem.find(".c-name");
     const cCode = clonedItem.find(".c-code, #c-volume-code");
     const cLogo = clonedItem.find("#c-logo");
     const cButton = clonedItem.find(".button");
-  
+
     const cPrice = clonedItem.find("#c-price");
     const c1H = clonedItem.find("#c-1h");
     const c24H = clonedItem.find("#c-24h");
@@ -139,21 +137,21 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     const cVolume24 = clonedItem.find("#c-volume-24");
     const cVolumeInTicker = clonedItem.find("#c-volume");
     const cGraph = clonedItem.find("#c-graph");
-  
+
     var quote = data[0].quote.USD;
-  
+
     cPrice.text(formatingMoney(quote.price));
     setPercent(c1H, quote.percent_change_1h);
     setPercent(c24H, quote.percent_change_24h);
     setPercent(c7d, quote.percent_change_7d);
-  
+
     cMarketCap.text(formatingMoney(quote.market_cap));
     cVolume24.text(formatingMoney(quote.volume_24h));
     cVolumeInTicker.text(formatingMoney(quote.volume_24h / quote.price, false));
-  
+
     var spark = cGraph.find(".sparkline");
     spark.attr("id", "c-graph_" + ticker);
-  
+
     // load meta
     cName.text(meta.name);
     cCode.text(ticker);
@@ -165,10 +163,10 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     if (cta.trim() === "") {
       cButton.hide(); // Скрываем кнопку, если нет текста
     }
-  
+
     return clonedItem;
   }
-  
+
   function update_table(datas) {
     for (var ticker in datas) {
       var newItem = create_record(datas[ticker], coints[ticker], ticker);
@@ -177,10 +175,10 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     // Cкрываем скелетон
     skeleton.hide();
   }
-  
+
   function httpGet(path, params, callback) {
     $.ajax({
-      async: false,
+      async: true,
       method: "GET",
       url: URL + path,
       success: function (responce) {
@@ -189,12 +187,10 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
       data: params,
       error: function () {
         alert("error");
-      }
+      },
     });
   }
-  
-  
-  
+
   var coinSliderWrappers = $(".coin-slider-wrapper");
   coints = {};
   coinSliderWrappers.each(function () {
@@ -205,17 +201,17 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     meta["url"] = coin.find(".o-c-cta-url").text();
     meta["image"] = coin.find(".o-c-image").attr("src");
     code = coin.find(".o-c-code").text();
-  
+
     coints[code] = meta;
   });
-  
+
   tickers = Object.keys(coints).join(",");
 
   function getInformationData(tickers) {
     params = { symbol: tickers };
     httpGet("/latest", params, update_table);
   }
-  
+
   function getHistoricalData(tickers) {
     now = new Date();
     since = now.addDays(-7);
@@ -223,22 +219,20 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
       symbol: tickers,
       interval: INTERVAL_FOR_CHART,
       time_start: since.toISOString(),
-      time_end: now.toISOString()
+      time_end: now.toISOString(),
     };
     httpGet("/historical", params, function (data) {
       historicalData = data;
+      drawGraphs();
     });
   }
 
-  getHistoricalData(tickers);
-  getInformationData(tickers);
-  waitForEl(".sparkline", drawGraphs);
+  function aa() {
+    console.log("---------");
+    getHistoricalData(tickers);
+    getInformationData(tickers);
+  }
 
-
-
-  });
-
-
-
-
-
+  //waitForEl(".sparkline", aa);
+  aa();
+});
