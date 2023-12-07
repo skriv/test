@@ -116,9 +116,9 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
         var prices = getPrices(historicalData[key][0].quotes);
         sparkline.sparkline(elem, prices);
         if (prices[0] <= prices[prices.length - 1]) {
-          $(this).css("stroke", "green");
+          $(this).css("stroke", "var(--base--green)");
         } else {
-          $(this).css("stroke", "red");
+          $(this).css("stroke", "var(--base--red)");
         }
       }
     });
