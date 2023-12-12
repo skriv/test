@@ -55,7 +55,6 @@ let swiper;
 // });
 
 
-// VIDEO PLAYER
 $(document).ready(function () {
     const players = Plyr.setup(".js-player", {
       controls: [],
@@ -96,14 +95,16 @@ $(document).ready(function () {
         } else {
           player.pause();
           $(this).show();
-        }
+        });
   
-        if (swiper) {
-          swiper.slideTo(index);
-        }
+      // Добавляем обработчик события touchmove для документа
+      $(document).on("touchmove", function () {
+        // При скроллинге на мобильных устройствах останавливаем все видео
+        stopAllVideos();
       });
     });
   });
+
   
 
 // VIDEO SLIDER
