@@ -100,7 +100,7 @@ $(".slider-main_component").each(function (index) {
     },
     slideActiveClass: "is-active",
     slideDuplicateActiveClass: "is-active",
-    // initialSlide: 1, // Второй слайд (индексация начинается с 0)
+    initialSlide: 1, // Второй слайд (индексация начинается с 0)
     centeredSlides: true,
   });
 });
