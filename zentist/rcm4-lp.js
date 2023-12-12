@@ -3,7 +3,6 @@ console.log("Hello RCM4");
 let swiper;
 
 
-
 // VIDEO PLAYER
 $(document).ready(function () {
   const players = Plyr.setup(".js-player", {
