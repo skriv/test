@@ -9,6 +9,42 @@ $(document).ready(function () {
     controls: [],
   });
 
+
+  players.forEach(function (player, index) {
+    player.on("play", function () {
+        stopAllVideos(player);
+        $(".cover").eq(index).hide(); // Hide cover for the current video
+    });
+
+    player.on("pause", function () {
+        $(".cover").eq(index).show(); // Show cover when the current video is paused
+    });
+});
+
+// Find all elements with class "cover"
+const coverElements = $(".cover");
+
+// Add click and touch event handlers for each "cover" element
+$(".cover").each(function (index) {
+    $(this).on("click touchstart", function (event) {
+        event.preventDefault(); // Prevent default action for iOS compatibility
+        const player = players[index];
+        if (player.paused) {
+            $(this).hide();
+            player.play();
+            stopAllVideos(player);
+        } else {
+            player.pause();
+            $(this).show();
+        }
+
+        if (swiper) {
+            swiper.slideTo(index);
+        }
+    });
+});
+
+
   // Функция для остановки всех видео, кроме выбранного
   function stopAllVideos(exceptPlayer) {
     players.forEach(function (player) {
@@ -18,40 +54,40 @@ $(document).ready(function () {
     });
   }
 
-  // Добавьте обработчики событий "play" и "pause" для каждого плеера
-  players.forEach(function (player, index) {
-    player.on("play", function () {
-      stopAllVideos(player);
-      $(".cover").eq(index).hide(); // Скрываем "cover" для текущего видео
-    });
+//   // Добавьте обработчики событий "play" и "pause" для каждого плеера
+//   players.forEach(function (player, index) {
+//     player.on("play", function () {
+//       stopAllVideos(player);
+//       $(".cover").eq(index).hide(); // Скрываем "cover" для текущего видео
+//     });
 
-    player.on("pause", function () {
-      $(".cover").eq(index).show(); // Показываем "cover" при паузе текущего видео
-    });
-  });
+//     player.on("pause", function () {
+//       $(".cover").eq(index).show(); // Показываем "cover" при паузе текущего видео
+//     });
+//   });
 
-  // Находим все элементы с классом "cover"
-  const coverElements = $(".cover");
+//   // Находим все элементы с классом "cover"
+//   const coverElements = $(".cover");
 
-  // Добавляем обработчики кликов для каждого "cover" элемента
-  $(".cover").each(function (index) {
-    $(this).click(function () {
-      const player = players[index];
-      if (player.paused) {
-        $(this).hide();
-        player.play();
-        stopAllVideos(player);
-      } else {
-        player.pause();
-        $(this).show();
-      }
+//   // Добавляем обработчики кликов для каждого "cover" элемента
+//   $(".cover").each(function (index) {
+//     $(this).click(function () {
+//       const player = players[index];
+//       if (player.paused) {
+//         $(this).hide();
+//         player.play();
+//         stopAllVideos(player);
+//       } else {
+//         player.pause();
+//         $(this).show();
+//       }
   
-      if (swiper) {
-        swiper.slideTo(index);
-      }
-    });
-  });
-});
+//       if (swiper) {
+//         swiper.slideTo(index);
+//       }
+//     });
+//   });
+// });
 
 
 
