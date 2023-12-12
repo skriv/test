@@ -19,7 +19,6 @@ $(document).ready(function () {
   }
 
 
-
   // Добавьте обработчики событий "play" и "pause" для каждого плеера
   players.forEach(function (player, index) {
     player.on("play", function () {
