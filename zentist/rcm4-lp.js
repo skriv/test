@@ -55,9 +55,6 @@ $(document).ready(function () {
 
 
 
-
-
-
 // VIDEO SLIDER
 $(".slider-main_component").each(function (index) {
   let sliderDuration = 300;
@@ -103,7 +100,7 @@ $(".slider-main_component").each(function (index) {
     },
     slideActiveClass: "is-active",
     slideDuplicateActiveClass: "is-active",
-    initialSlide: 1, // Второй слайд (индексация начинается с 0)
-    centeredSlides: true,
+    // initialSlide: 1, // Второй слайд (индексация начинается с 0)
+    // centeredSlides: true,
   });
 });
