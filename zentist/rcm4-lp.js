@@ -106,7 +106,6 @@ $(document).ready(function () {
   });
   
 
-
 // VIDEO SLIDER
 $(".slider-main_component").each(function (index) {
   let sliderDuration = 300;
