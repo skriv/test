@@ -66,7 +66,7 @@ $(".slider-main_component").each(function (index) {
   }
    swiper = new Swiper($(this).find(".swiper")[0], {
     speed: sliderDuration,
-    loop: true,
+    loop: false,
     autoHeight: false,
     followFinger: true,
     freeMode: false,
