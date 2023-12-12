@@ -9,6 +9,14 @@ $(document).ready(function () {
     controls: [],
   });
 
+  // Функция для остановки всех видео, кроме выбранного
+  function stopAllVideos(exceptPlayer) {
+    players.forEach(function (player) {
+      if (player !== exceptPlayer) {
+        player.pause();
+      }
+    });
+  }
 
   players.forEach(function (player, index) {
     player.on("play", function () {
@@ -21,10 +29,22 @@ $(document).ready(function () {
     });
 });
 
-// Find all elements with class "cover"
-const coverElements = $(".cover");
+//   // Добавьте обработчики событий "play" и "pause" для каждого плеера
+//   players.forEach(function (player, index) {
+//     player.on("play", function () {
+//       stopAllVideos(player);
+//       $(".cover").eq(index).hide(); // Скрываем "cover" для текущего видео
+//     });
 
-// Add click and touch event handlers for each "cover" element
+//     player.on("pause", function () {
+//       $(".cover").eq(index).show(); // Показываем "cover" при паузе текущего видео
+//     });
+//   });
+
+  // Находим все элементы с классом "cover"
+  const coverElements = $(".cover");
+
+  // Add click and touch event handlers for each "cover" element
 $(".cover").each(function (index) {
     $(this).on("click touchstart", function (event) {
         event.preventDefault(); // Prevent default action for iOS compatibility
@@ -43,31 +63,6 @@ $(".cover").each(function (index) {
         }
     });
 });
-
-
-  // Функция для остановки всех видео, кроме выбранного
-  function stopAllVideos(exceptPlayer) {
-    players.forEach(function (player) {
-      if (player !== exceptPlayer) {
-        player.pause();
-      }
-    });
-  }
-
-//   // Добавьте обработчики событий "play" и "pause" для каждого плеера
-//   players.forEach(function (player, index) {
-//     player.on("play", function () {
-//       stopAllVideos(player);
-//       $(".cover").eq(index).hide(); // Скрываем "cover" для текущего видео
-//     });
-
-//     player.on("pause", function () {
-//       $(".cover").eq(index).show(); // Показываем "cover" при паузе текущего видео
-//     });
-//   });
-
-//   // Находим все элементы с классом "cover"
-//   const coverElements = $(".cover");
 
 //   // Добавляем обработчики кликов для каждого "cover" элемента
 //   $(".cover").each(function (index) {
