@@ -84,7 +84,7 @@ $(document).ready(function () {
         }
       }else{ // Если не выбран DSO
         
-        $(".success-message-3 div").text("testtest");
+        $(".success-message-3 div").text("The bootcamp attendance is reserved to Dental Support Organizations DSOs. For sponsorship opportunities, please send us an email at growth@zentist.io.");
 
       }
         
