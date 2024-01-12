@@ -21,19 +21,19 @@ $(document).ready(function () {
       // Добавляем str в .add-info соответствующее количество раз
       for (var i = 0; i < quantity; i++) {
         var str =
-          "<div class='attendee-row'><input type='text' class='card-number w-input' maxlength='256' name='Attendee " +
+          "<div class='attendee-row'><input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='Attendee " +
           i +
           "' data-name='Attendee Name " +
           i +
           "' placeholder='Name' id='attendee " +
           i +
-          "' required=''><input type='email' class='card-number w-input' maxlength='256' name='email " +
+          "' required=''><input type='email' class='form-text-rcm4 white w-input' maxlength='256' name='email " +
           i +
           "' data-name='Attendee Email " +
           i +
           "' placeholder='Email' id='email " +
           i +
-          "' required=''><input type='phone' class='card-number w-input' maxlength='256' name='phone " +
+          "' required=''><input type='phone' class='form-text-rcm4 white w-input' maxlength='256' name='phone " +
           i +
           "' data-name='Attendee Phone " +
           i +
@@ -83,8 +83,10 @@ $(document).ready(function () {
             buttonInOnlineForm[0].click();
         }
       }else{ // Если не выбран DSO
-        
-        $(".success-message-3 div").text("The bootcamp attendance is reserved to Dental Support Organizations DSOs. For sponsorship opportunities, please send us an email at growth@zentist.io.");
+
+        $("#registration-wrapper").hide();
+
+        $(".success-message-3 div").html("<div class='text-block-154 text-balanced'>The bootcamp attendance is reserved to Dental Support Organizations DSOs. <br/>For sponsorship opportunities, please send us an email <a href='mailto:growth@zentist.io'>growth@zentist.io</a>.</div>");
 
       }
         
