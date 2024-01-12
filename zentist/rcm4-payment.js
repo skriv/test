@@ -59,7 +59,7 @@ $(document).ready(function () {
       if (selectedValue === "DSO") {
         dsoSelect = true;
         $("#other-dso").hide().prop("required", false); // Hide and make not required
-      } else if (selectedValue === "Vendo") {
+      } else if (selectedValue === "Vendor") {
         dsoSelect = false;
         $("#other-dso").hide().prop("required", false); // Hide and make not required
       } else if (selectedValue === "Other") {
