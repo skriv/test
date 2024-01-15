@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    var typeTicket = $("input[name='type']");
+    var typeTicket = $("input[name='Type']");
     var dsoSelect;
     var campusSelect = true;
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
         
 
         // Check if the clicked div contains the text "Campus"
-        if ($(this).text().includes("On-Campus")) {
+        if ($(this).text().includes("RCM4 On-Campus")) {
             campusSelect = true;
         }else{
             campusSelect = false;
@@ -115,7 +115,7 @@ $(document).ready(function () {
 
 
       });   
-      
+
       function ticketName(){
         var h2Value = $(".rcm-plan4-wrapper.active h2").text();
         typeTicket.val(h2Value);
