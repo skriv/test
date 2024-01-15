@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var dsoSelect;
-    var campusSelect;
+    var campusSelect = true;
 
     var ONLINE = $('form[data-commerce-product-id="659e4671e0fcbaa2240b96c2"]');
     var buttonInOnlineForm = ONLINE.find('a[data-node-type="commerce-buy-now-button"]');
@@ -108,10 +108,10 @@ $(document).ready(function () {
 
       });   
 
-    function showMessage() {
-        //console.log("show message");
-        dsoSelect = false;
-        $("#other-dso").hide().prop("required", false); // Hide and make not required
-      }
+    // function showMessage() {
+    //     //console.log("show message");
+    //     dsoSelect = false;
+    //     $("#other-dso").hide().prop("required", false); // Hide and make not required
+    //   }
     
   });
