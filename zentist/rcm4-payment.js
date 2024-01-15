@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
+
+    var typeTicket = $("input[name='type']");
     var dsoSelect;
     var campusSelect = true;
+
+    
 
     var ONLINE = $('form[data-commerce-product-id="659e4671e0fcbaa2240b96c2"]');
     var buttonInOnlineForm = ONLINE.find('a[data-node-type="commerce-buy-now-button"]');
@@ -11,6 +15,7 @@ $(document).ready(function () {
 
     $("#other-dso").hide();
   
+    ticketName();
 
 
     // Функция для добавления строк
@@ -98,15 +103,23 @@ $(document).ready(function () {
     
         // Add the 'active' class to the clicked div
         $(this).addClass("active");
+        ticketName();
+        
 
         // Check if the clicked div contains the text "Campus"
-        if ($(this).text().includes("Campus")) {
+        if ($(this).text().includes("On-Campus")) {
             campusSelect = true;
         }else{
             campusSelect = false;
         }
 
+
       });   
+      
+      function ticketName(){
+        var h2Value = $(".rcm-plan4-wrapper.active h2").text();
+        typeTicket.val(h2Value);
+      }
 
     // function showMessage() {
     //     //console.log("show message");
