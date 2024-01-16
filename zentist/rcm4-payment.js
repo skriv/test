@@ -44,6 +44,12 @@ $(document).ready(function () {
           i +
           "' placeholder='Phone' id='phone " +
           i +
+          "' required=''><input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='Company" +
+          i +
+          "' data-name='Attendee Company " +
+          i +
+          "' placeholder='Company name' id='company " +
+          i +
           "' required=''></div>";
         $(".add-info").append(str);
       }
@@ -98,6 +104,8 @@ $(document).ready(function () {
     });
 
     $(".rcm-plan4-wrapper").click(function () {
+
+
         // Remove the 'active' class from all divs with class rcm-plan4-wrapper
         $(".rcm-plan4-wrapper").removeClass("active");
     
