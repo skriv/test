@@ -15,6 +15,9 @@ $(document).ready(function () {
 
     $("#other-dso").hide();
     $(".other-wrapper").hide();
+
+
+   
     
   
     ticketName();
@@ -99,6 +102,12 @@ $(document).ready(function () {
         $(".success-message-3 div").html("<div class='text-block-154 text-balanced'>The bootcamp attendance is reserved to Dental Support Organizations DSOs. <br/>For sponsorship opportunities, please send us an email <a href='mailto:growth@zentist.io'>growth@zentist.io</a>.</div>");
 
       }
+
+      // COOKIES
+      // var organizationName = "TEST";
+        var organizationName = $('#Organization').val();
+        console.log(organizationName);
+        Cookies.set('myCookie', organizationName, { expires: 7 }); // Expires in 7 days
         
     });
 
@@ -127,6 +136,8 @@ $(document).ready(function () {
         var h2Value = $(".rcm-plan4-wrapper.active h2").text();
         typeTicket.val(h2Value);
       }
+
+      
 
     // function showMessage() {
     //     //console.log("show message");
