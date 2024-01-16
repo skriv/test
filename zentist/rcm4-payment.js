@@ -14,6 +14,8 @@ $(document).ready(function () {
     var buttonInCampusForm = CAMPUS.find('a[data-node-type="commerce-buy-now-button"]');
 
     $("#other-dso").hide();
+    $(".other-wrapper").hide();
+    
   
     ticketName();
 
@@ -44,12 +46,6 @@ $(document).ready(function () {
           i +
           "' placeholder='Phone' id='phone " +
           i +
-          "' required=''><input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='Company" +
-          i +
-          "' data-name='Attendee Company " +
-          i +
-          "' placeholder='Company name' id='company " +
-          i +
           "' required=''></div>";
         $(".add-info").append(str);
       }
@@ -69,12 +65,15 @@ $(document).ready(function () {
       var selectedValue = $("input[name='Radio']:checked").val();
       if (selectedValue === "DSO") {
         dsoSelect = true;
+        $(".other-wrapper").hide();
         $("#other-dso").hide().prop("required", false); // Hide and make not required
       } else if (selectedValue === "Vendor") {
         dsoSelect = false;
+        $(".other-wrapper").hide();
         $("#other-dso").hide().prop("required", false); // Hide and make not required
       } else if (selectedValue === "Other") {
         dsoSelect = false;
+        $(".other-wrapper").show();
         $("#other-dso").show().prop("required", true); // Show and make required
         $("#other-dso").focus();
       }
