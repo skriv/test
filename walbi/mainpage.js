@@ -23,7 +23,10 @@ $(document).ready(function(){
   var isAndroid = userAgent.indexOf("android") > -1; // Провер
   var isIOS = /iphone|ipad|ipod/.test(userAgent); // Проверяем наличие iOS устройств
 
-  var mainButton = $('#mainButton');
+  // var mainButton = $('#mainButton');
+
+  var mainButton = $('.hero-section');
+
 
   if (isAndroid) {
     mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
@@ -36,22 +39,29 @@ $(document).ready(function(){
   $('#blog-list').append('<div id="empty">&nbsp;</div>');
 
   EMPTY = $('#empty');
-    updatePadding();
+  resetAndRecalculate();
 });
 
 
 
 
-// Функция для обновления padding-right у элемента #empty в списке блогпостов
-function updatePadding() {
-  var windowWidth = $(window).width();
-  var swiperWrapperWidth = $('.swiper-wrapper').width();
-  var difference = (windowWidth - swiperWrapperWidth) / 2;
+function resetAndRecalculate() {
+  var swiperWrapper = $('.container-large');
+
+  // Сброс положения элемента, если нужно
+  // Например, 
+  // swiperWrapper.css('left', '0px');
+
+  // Вычисление и вывод новой позиции
+  var distance = swiperWrapper.offset().left;
+  console.log(distance);
   EMPTY.css({
-    'padding-right': difference + 'px',
-    'margin-right': -difference + 'px'
-});
+    'padding-right': distance + 'px',
+    'margin-right': -distance + 'px'    
+  });
 }
+
+
 
 
 
@@ -82,7 +92,7 @@ ppp = ppp - 16;
 let cont = $(".container-large").width();
 
 var endX = cont - result - ppp;
-console.log(endX)
+// console.log(endX)
 
 // // создаем твин, который перемещает элемент по горизонтали
 tl.to("#currency", {
@@ -111,6 +121,8 @@ $(window).resize(function () {
   // console.log("cont");
   ScrollTrigger.update();
 
-
-  updatePadding(); //обновляем паддинги для блог листинга
+  resetAndRecalculate();
 });
+
+
+
