@@ -1,13 +1,12 @@
-console.log("Hello Walbi1111");
-
-// const ANDRIOD_BUTTON_NAME = "Download the app";
-// const ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
-// const JOIN_LINK = "https://app.walbi.com/"
+console.log("Hello WalbiProduction");
 
 var EMPTY = "";
 
 var IOS_BUTTON_NAME = "Download iOS Beta";
 var IOS_LINK = "https://testflight.apple.com/join/QRbXi8u3"
+
+var IOS_INDIA = "Download";
+var IOS_INDIA_LINK = "https://apps.apple.com/us/app/walbi-ai-crypto-assistant/id6451312745";
 
 var ANDROID_BUTTON_NAME = "Download";
 var ANDROID_LINK = "https://play.google.com/store/apps/details?id=com.walbi.android";
@@ -16,35 +15,67 @@ var JOIN_LINK = "https://app.walbi.com/";
 var JOIN_BUTTON_NAME = "Join";
 
 
-
-$(document).ready(function(){
-
-  var userAgent = navigator.userAgent.toLowerCase();
-  var isAndroid = userAgent.indexOf("android") > -1; // Провер
-  var isIOS = /iphone|ipad|ipod/.test(userAgent); // Проверяем наличие iOS устройств
-
-  // var mainButton = $('#mainButton');
-
-  var mainButton = $('.hero-section');
+// USER AGENT
+var userAgent = navigator.userAgent.toLowerCase();
+var isAndroid = userAgent.indexOf("android") > -1; 
+var isIOS = /iphone|ipad|ipod/.test(userAgent); // Проверяем наличие iOS устройств
 
 
-  if (isAndroid) {
-    mainButton.text(ANDROID_BUTTON_NAME).attr('href', ANDROID_LINK);
-  } else if (isIOS) {
-    mainButton.text(IOS_BUTTON_NAME).attr('href', IOS_LINK);
-  } else {
-    mainButton.text(JOIN_BUTTON_NAME).attr('href', JOIN_LINK);
-  }
+var mainButton = $('.hero-section');
+var userCountry = null;
 
-  $('#blog-list').append('<div id="empty">&nbsp;</div>');
-
-  EMPTY = $('#empty');
-  resetAndRecalculate();
+$(document).ready(function() {
+  initializeMainButton();
+  initializeBlogList();
 });
 
+function initializeMainButton() {
+  if (isAndroid) {
+    setMainButton(ANDROID_BUTTON_NAME, ANDROID_LINK);
+  } else if (isIOS) {
+    setupIosButton();
+  } else {
+    setMainButton(JOIN_BUTTON_NAME, JOIN_LINK);
+  }
+}
+
+function setMainButton(text, href) {
+  mainButton.text(text).attr('href', href);
+  console.log(href);
+}
+
+function setupIosButton() {
+  if (userCountry === null) {
+    $.getJSON('https://ipinfo.io', function(data) {
+      if (data && data.country) {
+        userCountry = data.country;
+        updateIosButton();
+      }
+    }).fail(function() {
+      console.error('Error request to ipinfo.io');
+    });
+  } else {
+    updateIosButton();
+  }
+}
+
+function updateIosButton() {
+  if (userCountry === 'IN') {
+    setMainButton(IOS_INDIA, IOS_INDIA_LINK);
+  } else {
+    setMainButton(IOS_BUTTON_NAME, IOS_LINK);
+  }
+}
+
+function initializeBlogList() {
+  $('#blog-list').append('<div id="empty">&nbsp;</div>');
+  EMPTY = $('#empty');
+  resetAndRecalculate();
+}
 
 
 
+// Add Padding to Blog Section
 function resetAndRecalculate() {
   var swiperWrapper = $('.container-large');
 
@@ -54,12 +85,12 @@ function resetAndRecalculate() {
 
   // Вычисление и вывод новой позиции
   var distance = swiperWrapper.offset().left;
-  console.log(distance);
   EMPTY.css({
     'padding-right': distance + 'px',
     'margin-right': -distance + 'px'    
   });
 }
+
 
 
 
@@ -92,7 +123,6 @@ ppp = ppp - 16;
 let cont = $(".container-large").width();
 
 var endX = cont - result - ppp;
-// console.log(endX)
 
 // // создаем твин, который перемещает элемент по горизонтали
 tl.to("#currency", {
@@ -102,7 +132,7 @@ tl.to("#currency", {
 
 
 
-// // создаем триггер ScrollTrigger для запуска анимации
+// создаем триггер ScrollTrigger для запуска анимации
 ScrollTrigger.create({
   trigger: "#currency", // элемент, который будет запускать триггер
   start: "top 95%", // точка начала анимации (верх центра экрана)
@@ -113,16 +143,13 @@ ScrollTrigger.create({
 });
 
 
-
+// код, который нужно выполнить при изменении размера окна
 $(window).resize(function () {
-  // код, который нужно выполнить при изменении размера окна
   cont = $(".container-large").width();
   endX = cont - result - ppp;
-  // console.log("cont");
   ScrollTrigger.update();
 
-  resetAndRecalculate();
+  resetAndRecalculate(); // Add Padding to Blog Section
 });
-
 
 
