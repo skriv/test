@@ -110,7 +110,7 @@ var tl = gsap.timeline({
   }
 });
 
-const containers = $(".test-scroll.padding-medium");
+const containers = $(".test-scroll");
 let ppp = 0;
 
 let result = 0;
