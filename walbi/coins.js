@@ -1,4 +1,4 @@
-console.log("Hello Coin");
+console.log("Hello Coin Production");
 //console.log("test12312313");
 //URL = "http:\\\\localhost:8082"
 let URL = "https:\\\\walbi-coins-f5f6175f8253.herokuapp.com";
