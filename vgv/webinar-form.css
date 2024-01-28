@@ -1,0 +1,168 @@
+.hs-button{
+    
+    border-style: none;
+    color: white;
+    height: 3.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    background-color: #2a48df;
+    border-radius: 54px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    transition: box-shadow .2s;
+    display: flex;
+    box-shadow: inset 0 0 20px 20px transparent;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  
+  .hs-button:hover {
+    box-shadow: inset 0 0 20px 20px rgba(0,0,0,.1);
+  }
+  
+  .hs-input{
+    width: 100%;
+    height: 48px;
+    color: #232326;
+    background-color: #fff;
+    border: 1px solid rgba(105,113,128,.3);
+    border-radius: 6px;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    padding-right: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    transition: background-color .2s;
+  }
+  
+  .hs-form-field{
+    /* margin-top: 1.5rem; */
+    margin-bottom: 4px;
+  }
+  
+  .hs-form-field>label {
+    box-sizing: border-box;
+    width: auto;
+    max-width: 500px;
+    color: #212d3a;
+    margin-top: 1rem;
+    margin-bottom: 4px;
+    padding-top: 0;
+    font-family: Poppins,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    display: block;
+  }
+  
+  .inputs-list.multi-container {
+    padding-left: 0; /* Убираем отступ слева у списка */
+  }
+  
+  .inputs-list.multi-container .hs-form-checkbox {
+    list-style-type: none; /* Убираем маркеры списка (точки) */
+    display: flex; /* Используем флекс-контейнер */
+    align-items: center; /* Выравниваем элементы по вертикали (по центру) */
+    margin-bottom: 0.5rem; /* Добавляем отступ снизу между чекбоксами */
+  }
+
+  .hs-form-booleancheckbox{
+    margin-top: 1.5rem;
+  }
+
+  .hs-form-booleancheckbox-display>span{
+    margin-top: -3px;
+  }
+
+
+  
+  
+  .inputs-list.multi-container .hs-form-checkbox input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem; /* Добавляем отступ между чекбоксом и меткой */
+  }
+  
+  .inputs-list.multi-container .hs-form-checkbox label {
+    font-weight: normal; /* Убираем жирность из текста меток */
+  }
+  
+  textarea.hs-fieldtype-textarea {
+    height: 124px;
+    padding-top: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .hs-form-booleancheckbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  
+  }
+  
+  .hs-form-booleancheckbox input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem; /* Добавляем отступ между чекбоксом и меткой */
+  }
+  
+  .hs-form-booleancheckbox label {
+    font-weight: normal; /* Сделать текст не жирным */
+    margin-left: 1rem; /* Отступ слева от текста лейбла */
+  }
+  
+  .inputs-list {
+    padding-left: 0; /* Устанавливаем отступ слева в 0 */
+  }
+  
+  .hs-form-booleancheckbox-display {
+    padding-left: 0;
+    margin-left: 0 !important;
+  }
+  
+  .hs-form-booleancheckbox label {
+    font-weight: normal;
+    margin-left: 1rem;
+    width: 100%;
+  }
+  
+  .no-list {
+    list-style-type: none; /* Убираем точки */
+  }
+  
+  .hs-error-msgs {
+    color: red; /* Красный цвет шрифта */
+  }
+  
+  .hs-error-msgs label {
+    font-weight: normal; /* Убираем жирный шрифт */
+  }
+  
+  .hs-error-msg {
+    margin-top: 0.5rem; 
+    font-size: 0.825rem;
+  }
+  
+  
+  /* GRID EDITOR */
+  /* .hs-form-private {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+   */
+  /* .hs-form-private > div {
+    grid-column: span 1;
+  } */
+  
+  /* For 5, 6 и 7 span 2, */
+  /* .hs-form-private > div:nth-child(n+5):nth-child(-n+7) {
+    grid-column: span 2;
+  } */
+
+  
