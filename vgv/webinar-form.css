@@ -145,24 +145,47 @@
     font-size: 0.825rem;
   }
   
-  
-  /* GRID EDITOR */
-  /* .hs-form-private {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 0;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+/* AUTOR GRIDS */
+
+
+
+
+
+
+
+@media screen and (min-width: 992px) {
+  /* Стили для экранов шириной до 991px */
+  .author-grid {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -2.5rem; /* Отрицательный отступ, половина от 5rem, для компенсации */
   }
-   */
-  /* .hs-form-private > div {
-    grid-column: span 1;
-  } */
-  
-  /* For 5, 6 и 7 span 2, */
-  /* .hs-form-private > div:nth-child(n+5):nth-child(-n+7) {
-    grid-column: span 2;
-  } */
+
+  /* Стиль для элементов author */
+  .author-grid > .author {
+      margin: 2.5rem; /* Отступ между элементами равен 5rem */
+      flex-grow: 0; /* не позволяет элементам расти */
+      flex-basis: calc(50% - 5rem); /* 50% ширины минус горизонтальный отступ */
+  }
+
+  /* Стиль для одного автора: занимает 100% ширины и имеет padding 1.5rem */
+  .author-grid > .author:only-child {
+      flex-basis: 100%;
+      /* padding-right: 1.5rem; */
+  }
+
+  /* Стили для случая с тремя авторами */
+  .author-grid > .author:nth-child(3) {
+      flex-basis: calc(50% - 5rem); /* Размер, как у первого элемента */
+  }
+
+  /* Центрирование третьего элемента при наличии ровно трех элементов */
+  .author-grid {
+      justify-content: space-around; /* Равномерное распределение с дополнительным пространством вокруг элементов */
+  }
+}
+
+
+
 
   
