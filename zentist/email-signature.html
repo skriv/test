@@ -44,7 +44,7 @@
         }
 
         .separator {
-            border-bottom: 1px solid #DAE3ED;
+            /* border-bottom: 1px solid #DAE3ED; */
             max-width: 500px;
             margin-top: 8px;
             padding-top: 8px;
@@ -52,7 +52,7 @@
 
         .username {
             font-weight: 700;
-            line-height: 24px;
+            line-height: px;
             font-size: 18px;
         }
 
@@ -64,53 +64,62 @@
 
         .userwrapper {
             padding-right: 24px;
+            max-width: 96px;
+            width: 96px;
+        }
+
+        #unique {
+            display: inline-block;
+            width: auto;
         }
     </style>
 </head>
 
 <body id="uniqueBody">
     <div id="unique">
-        <div class="separator"></div>
-    <table cellpadding="0" cellspacing="0" style="margin-top: 16px;" width="500">
-        <tbody>
-            <tr>
-                <td valign="top" class="userwrapper">
-                    <div style="max-width: 96; height: 96px; width: 96px; max-height: 96px; display: block; overflow: hidden; border-radius: 8px; background-color: #fafafa;">Image
-                        
+        <table cellpadding="0" cellspacing="0" width="386">
+            <tbody>
+                <tr>
+                    <td valign="top" class="userwrapper">
+                        <div
+                            style="max-width: 96; height: 96px; width: 96px; max-height: 96px; display: block; overflow: hidden; border-radius: 8px; background-color: #fafafa;">
+                            Image
+
                         </div>
-                </td>
-                <td valign="top">
-                    <div class="username">User Name</div>
-                    <div class="position">Position at Zentist</div>
-                    <div class="contact-info">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="highlight" valign="middle">Phone:</td>
-                                    <td valign="middle"><a href="tel:+14153234937">+1 415-123-4567</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight" valign="middle">Email:</td>
-                                    <td valign="middle"><a href="mailto:email@zentist.io">email@zentist.io</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight" valign="middle">Web:</td>
-                                    <td valign="middle"><a href="https://www.zentist.io/" target="_blank">zentist.io</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="separator"></div>
-                    <a href="https://rcmbootcamp.zentist.io/" target="_blank">
-                        <img src="https://uploads-ssl.webflow.com/642657eca8d8b7cd0d20369a/65cc85572fcce968889be764_banner.jpg"
-                            alt="Dental RCM Bootcamp 4.0" class="banner-image">
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                    </td>
+                    <td valign="top">
+                        <div class="username">User Name</div>
+                        <div class="position">Position at Zentist</div>
+                        <div class="contact-info">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="highlight" valign="middle">Phone:</td>
+                                        <td valign="middle"><a href="tel:+14153234937">+1 415-123-4567</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="highlight" valign="middle">Email:</td>
+                                        <td valign="middle"><a href="mailto:email@zentist.io">email@zentist.io</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="highlight" valign="middle">Web:</td>
+                                        <td valign="middle"><a href="https://www.zentist.io/"
+                                                target="_blank">zentist.io</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="separator"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="https://rcmbootcamp.zentist.io/" target="_blank" style="width: 384px; height: auto;">
+            <img src="https://uploads-ssl.webflow.com/642657eca8d8b7cd0d20369a/65cc85572fcce968889be764_banner.jpg"
+                alt="Dental RCM Bootcamp 4.0" class="banner-image">
+        </a>
+    </div>
 </body>
 
 </html>
