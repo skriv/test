@@ -43,21 +43,16 @@ function initializeMainButton() {
 }
 
 function setMainButton(text, href) {
-  mainButton.each(function () {
-    // Проверяем, есть ли у элемента атрибут data-utm
-    if ($(this).attr("data-utm")) {
-      // Проверяем, нет ли у элемента атрибута data-open-app
-      if (!$(this).attr("data-open-app")) {
-        // Если атрибута data-open-app нет, обновляем ссылку
-        $(this).attr("href", href);
-      }
-      // Обновляем href для всех элементов с data-utm, независимо от наличия data-open-app
+  mainButton.each(function() {
+
+    
+    // Проверяем наличие атрибута у каждой кнопки
+    if (!$(this).attr('data-open-app')) {
+      // Если атрибута нет, обновляем текст и href
       $(this).text(text).attr("href", href);
     }
   });
-
-  // $(this).text(text).attr("href", href);
-
+  
   // Добавляем UTM-параметры к нужным кнопкам
   setUTMtoButtons();
 }
