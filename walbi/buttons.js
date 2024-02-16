@@ -43,17 +43,13 @@ function initializeMainButton() {
 }
 
 function setMainButton(text, href) {
-  mainButton.each(function() {
+  if (mainButton.attr('data-open-app') === 'open-app') {
+     text = HEADER_BUTTON
+  }else{
+    text = JOIN_BUTTON_NAME
+  }
 
-    
-    // Проверяем наличие атрибута у каждой кнопки
-    if (!$(this).attr('data-open-app')) {
-      // Если атрибута нет, обновляем текст и href
-      $(this).text(text).attr("href", href);
-    }
-  });
-  
-  // Добавляем UTM-параметры к нужным кнопкам
+  mainButton.text(text).attr("href", href);
   setUTMtoButtons();
 }
 
