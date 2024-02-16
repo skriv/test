@@ -1,4 +1,4 @@
-console.log("UTM");
+console.log("Hello Main Page");
 
 var EMPTY = "";
 
@@ -16,21 +16,17 @@ var ANDROID_LINK =
 var JOIN_LINK = "https://app.walbi.com/";
 var JOIN_BUTTON_NAME = "Join";
 
-var HEADER_BUTTON = "Open App";
-
 // USER AGENT
 var userAgent = navigator.userAgent.toLowerCase();
 var isAndroid = userAgent.indexOf("android") > -1;
 var isIOS = /iphone|ipad|ipod/.test(userAgent); // Проверяем наличие iOS устройств
 
-var mainButton = $("button[data-utm], a[data-utm]");
+var mainButton = $(".hero-section");
 var userCountry = null;
 
 $(document).ready(function () {
   initializeMainButton();
 });
-
-//GEOLOCATION
 
 function initializeMainButton() {
   if (isAndroid) {
@@ -43,14 +39,8 @@ function initializeMainButton() {
 }
 
 function setMainButton(text, href) {
-  if (mainButton.attr('data-open-app') === 'open-app') {
-     text = HEADER_BUTTON
-  }else{
-    text = JOIN_BUTTON_NAME
-  }
-
   mainButton.text(text).attr("href", href);
-  setUTMtoButtons();
+  console.log(href);
 }
 
 function setupIosButton() {
@@ -74,30 +64,4 @@ function updateIosButton() {
   } else {
     setMainButton(IOS_BUTTON_NAME, IOS_LINK);
   }
-}
-
-//UTM's
-
-function setUTMtoButtons() {
-  // Выбираем все ссылки с атрибутом data-utm
-  mainButton.each(function () {
-    var currentUrl = new URL(window.location.href);
-    var linkUrl = new URL($(this).attr("href"));
-
-    // Перечисляем UTM-параметры, которые нужно добавить или обновить
-    [
-      "utm_campaign",
-      "utm_source",
-      "utm_medium",
-      "utm_term",
-      "utm_content",
-    ].forEach(function (param) {
-      let value = currentUrl.searchParams.get(param);
-      // Добавляем параметр, только если он есть в текущем URL
-      if (value) linkUrl.searchParams.set(param, value);
-    });
-
-    // Обновляем href ссылки
-    $(this).attr("href", linkUrl.toString());
-  });
 }
