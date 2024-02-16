@@ -41,7 +41,7 @@ function initializeMainButton() {
 function setMainButton(text, href) {
 
   mainButton.each(function() {
-    if ($(this).attr('data-nochange') !== "undefined") {
+    if ($(this).attr('data-name') === "nochange") {
       $(this).attr("href");
     }else{
       $(this).text(text).attr('href', href);
