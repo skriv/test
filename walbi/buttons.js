@@ -42,7 +42,7 @@ function setMainButton(text, href) {
 
   mainButton.each(function() {
     // Проверяем, имеет ли элемент атрибут data-nochange. Если атрибут отсутствует, attr() вернет undefined
-    if ($(this).attr('data-open-app') === "open-app") {
+    if ($(this).attr('data-nochange')) {
       $(this).attr("href");
     }else{
       $(this).text(text).attr('href', href);
