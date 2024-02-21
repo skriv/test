@@ -50,7 +50,6 @@ generateButton.click(function () {
 
     //Change Content
     $("#userName").text(fname); 
-    $("#userLast").text(lname); 
     $("#userPosition").text(position);
 
     //Change Email
