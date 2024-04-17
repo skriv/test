@@ -13,17 +13,17 @@ document.getElementById('upload').addEventListener('change', function(event) {
         }
 
         cropper = new Cropper(img, {
-            aspectRatio: 1,  // Сохраняем пропорции 1:1
+            aspectRatio: 1, 
             viewMode: 2,
-            autoCropArea: 1,  // Автоматически выбираем максимальную площадь при инициализации
+            autoCropArea: 1, 
             ready: function () {
-                cropper.setCropBoxData({width: 600, height: 600}); // Устанавливаем размер области кропа 600x600
+                cropper.setCropBoxData({width: 600, height: 600}); 
             },
             crop: () => {
-                // Обновляем canvas при каждом изменении кропа
+                
                 const canvasData = cropper.getCroppedCanvas({
                     width: 600,
-                    height: 600  // Явно задаём размер кропа
+                    height: 600  
                 });
                 updateCanvas(canvasData);
             }
