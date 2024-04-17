@@ -1,0 +1,25 @@
+:root {
+    --plyr-color-main: #ff0000;
+    /* --plyr-video-controls-background:linear-gradient(rgba(0, 0, 0, 0), rgba(2, 15, 48, 0.5)); */
+    --plyr-video-background:var(--color--lightgrey);
+  }
+  
+  .ytp-gradient-top{
+    background: none !important;
+  }
+
+
+
+
+  
+
+  /* linear-gradient(rgba(0, 0, 0, 0), rgba(2, 15, 48, 0.5);); */
+
+
+  /* var(--color--lightgrey)
+
+  var(--color--sapphirre)
+
+  var(--color--yellow-light)
+
+  var(--color--deeppink) */

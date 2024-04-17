@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактор изображений</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-around; /* Распределяет элементы с равными промежутками */
+            align-items: center; /* Центрирует элементы по вертикали */
+            height: 100vh; /* Полная высота видимой части экрана */
+        }
+        #image, #canvas {
+            width: 40%; /* Задаёт ширину элементов 40% от ширины контейнера */
+            display: block; /* Переключаем display, чтобы обеспечить отображение */
+            max-width: none; /* Убираем ограничение максимальной ширины */
+        }
+        #upload, #radiusSlider, #download {
+            display: block;
+            margin: 20px auto; /* Центрирует элементы и добавляет отступы сверху и снизу */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+</head>
+<body>
+    <input type="file" id="upload" accept="image/*" />
+    <div id="container">
+        <img id="image" style="display: none;">
+        <canvas id="canvas" style="display: none;"></canvas>
+    </div>
+    <label for="radiusSlider">Радиус скругления: <span id="radiusValue">20</span>px</label>
+    <input type="range" id="radiusSlider" min="0" max="100" value="20" />
+    <button id="download" style="display:none;">Скачать</button>
+    <script src="app.js"></script>
+</body>
+</html>
