@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div id="controls">
+        <div>
+            <h1>Your Personal
+                <br>Admissions
+                <br>Sticker
+            </h1>
+            <p>Use the controls to create your own personal admissions sticker that reflects your unique experience of
+                The Huntington. When you’re done, hit print and wear it proudly!</p>
+        </div>
+        <div>
+            <div>
+                <h2>Boldness</h2>
+                <input id="weightSlider" type="range" min="8" max="26" value="18">
+            </div>
+            <div>
+                <h2>Abundance</h2>
+                <input id="countSlider" type="range" min="1" max="12" value="6">
+            </div>
+            <div>
+                <h2>Radiance</h2>
+                <!-- <input id="heightSlider" type="range" min="150" max="300" value="229"> -->
+                <input id="heightSlider" type="range" min="1" max="1.8" value="1.5" step="0.05">
+            </div>
+        </div>
+        <div>
+            <div>
+                <h2>Color 1</h2>
+                <div id="colors1" class="colors">
+                    <div class="color" style="background: rgb(255, 148, 208);"></div>
+                    <div class="color" style="background: rgb(255, 81, 143);"></div>
+                    <div class="color" style="background: rgb(255, 0, 75);"></div>
+                    <div class="color" style="background: rgb(255, 220, 0);"></div>
+                    <div class="color" style="background: rgb(255, 157, 29);"></div>
+                    <div class="color" style="background: rgb(255, 90, 72);"></div>
+                    <div class="color" style="background: rgb(0, 243, 161);"></div>
+                    <div class="color" style="background: rgb(2, 209, 161);"></div>
+                    <div class="color" style="background: rgb(1, 175, 160);"></div>
+                    <div class="color" style="background: rgb(67, 186, 255);"></div>
+                    <div class="color" style="background: rgb(0, 152, 255);"></div>
+                    <div class="color" style="background: rgb(1, 118, 255);"></div>
+                    <div class="color" style="background: rgb(139, 139, 139);"></div>
+                    <div class="color" style="background: rgb(74, 74, 74);"></div>
+                    <div class="color" style="background: rgb(38, 38, 38);"></div>
+                </div>
+            </div>
+            <div>
+                <h2>Color 2</h2>
+                <div id="colors2" class="colors">
+                    <div class="color" style="background: rgb(255, 148, 208);"></div>
+                    <div class="color" style="background: rgb(255, 81, 143);"></div>
+                    <div class="color" style="background: rgb(255, 0, 75);"></div>
+                    <div class="color" style="background: rgb(255, 220, 0);"></div>
+                    <div class="color" style="background: rgb(255, 157, 29);"></div>
+                    <div class="color" style="background: rgb(255, 90, 72);"></div>
+                    <div class="color" style="background: rgb(0, 243, 161);"></div>
+                    <div class="color" style="background: rgb(2, 209, 161);"></div>
+                    <div class="color" style="background: rgb(1, 175, 160);"></div>
+                    <div class="color" style="background: rgb(67, 186, 255);"></div>
+                    <div class="color" style="background: rgb(0, 152, 255);"></div>
+                    <div class="color" style="background: rgb(1, 118, 255);"></div>
+                    <div class="color" style="background: rgb(139, 139, 139);"></div>
+                    <div class="color" style="background: rgb(74, 74, 74);"></div>
+                    <div class="color" style="background: rgb(38, 38, 38);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="btn">Print</div>
+
+    <div id="canvasBg"></div>
+    <div id="stickerShape"></div>
+
+    <img id="cursor" src="cursor2.png" style="left: 2330px; top: 770px;">
+
+    <script src="sketch.js" async defer></script>
+    <script src="script.js" async defer></script>
+
+    <main><canvas id="defaultCanvas0" class="p5Canvas" style="width: 2048px; height: 2048px;" width="2048"
+            height="2048"></canvas></main>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>
